@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07090f;
+  --color-surface: #141c16;
+  --color-fg: #e7f2ea;
+  --color-muted: #93a096;
+  --color-beam: #2ee6c7;
+  --color-amber: #f0b45a;
+  --font-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius: 1rem;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.saucer {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.touch-only {
+  display: none;
+}
+
+@media (pointer: coarse), (max-width: 820px) {
+  .touch-only {
+    display: flex;
+    padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  }
+}
